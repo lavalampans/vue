@@ -1,13 +1,19 @@
-<script setup lang="ts">
+<script setup>
 
-import Navbar from '@/components/navbar.vue';
-import Hero from '@/components/Hero.vue'
-import HomeCards from './components/HomeCards.vue';
+import Navbar from '@/components/Navbar.vue';
+import Footer from '@/components/Footer.vue'
+import { RouterView } from 'vue-router';
 
 </script>
 
 <template>
-  <Navbar />
-  <Hero />
-  <HomeCards />
+  <header>
+    <Navbar />
+  </header>
+  <main>
+    <RouterView />
+  </main>
+  <footer>
+    <Footer />
+  </footer>
 </template>

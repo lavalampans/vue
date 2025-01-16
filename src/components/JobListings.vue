@@ -1,9 +1,7 @@
 <script setup>
-
-import jobsData from '@/assets/jobs.json'
 import JobListings from '@/components/JobListing.vue';
-import { defineProps } from 'vue';
-import { ref } from 'vue';
+import axiosInstance from '@/lib/axios/instance';
+import { onMounted, reactive } from 'vue';
 
 defineProps({
     limit: {
@@ -11,7 +9,25 @@ defineProps({
         default: 6,
     }
 })
-const jobs = ref(jobsData);
+const state = reactive({
+    jobs: [],
+    isLoading: false,
+    error: null,
+});
+
+onMounted(async () => {
+    try {
+        state.isLoading = true;
+        const response = await axiosInstance.get('/jobs');
+        setTimeout(() => {
+            state.jobs = response.data;
+            state.isLoading = false;
+        }, 500);
+    } catch (error) {
+        state.error = error
+        state.isLoading = false
+    }
+})
 
 </script>
 
@@ -22,8 +38,12 @@ const jobs = ref(jobsData);
                 Browse Jobs
             </h2>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <JobListings v-for="job in jobs.slice(0, limit)" :key="job.id" :job="job" />
+            <div v-if="state.isLoading" class="text-center">
+                <div class="pi pi-spin pi-cog" style="font-size: 2rem"></div>
+            </div>
+
+            <div v-else class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <JobListings v-for="job in state.jobs?.slice(0, limit)" :key="job.id" :job="job" />
             </div>
         </div>
     </section>

@@ -26,6 +26,12 @@ npm install
 npm run dev
 ```
 
+### JSON server for development
+
+```sh
+npm run server
+```
+
 ### Type-Check, Compile and Minify for Production
 
 ```sh

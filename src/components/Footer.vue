@@ -3,7 +3,7 @@ import { RouterLink } from 'vue-router';
 </script>
 
 <template>
-    <footer class="bg-green-700 border-t border-green-500 mt-8">
+    <footer class="mt-auto bg-green-700 border-t border-green-500 py-10">
         <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 py-6">
             <div class="text-center">
                 <h3 class="text-white text-xl font-bold mb-4">Links</h3>

@@ -1,6 +1,6 @@
 import HomeView from '@/views/HomeView.vue';
-import JobsView from '@/views/JobsView.vue';
-import JobView from '@/views/JobView.vue';
+import JobsView from '@/feature/job/JobsView.vue';
+import JobView from '@/feature/job/JobView.vue';
 import NotFoundView from '@/views/NotFoundView.vue';
 import { createRouter, createWebHistory } from 'vue-router';
 

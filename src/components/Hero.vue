@@ -2,11 +2,11 @@
     defineProps(
         {
             title: {
-                default: "None",
+                default: "Portal",
                 type: String,
             },
             subtitle: {
-                default: "None",
+                default: "Find what you are looking for!",
                 type: String,
             }
         }

@@ -1,5 +1,5 @@
 <script setup>
-import JobView from '@/components/JobView.vue';
+import JobView from '@/feature/job/componets/JobView.vue';
 </script>
 
 <template>
